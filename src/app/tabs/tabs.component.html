@@ -1,14 +1,17 @@
+<div>
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a href="#">All</a>
+  <li class="nav-item" [ngClass]="{active: chosenList === 'all'}">
+    <a (click)="onClick('all')" style="cursor: pointer" >All</a>
   </li>
-  <li>
-    <a href="#">Light</a>
+  <li [ngClass]="{active: chosenList === 'Light'}">
+    <a (click)="onClick('Light')"  style="cursor: pointer">Light</a>
   </li>
-  <li>
-    <a href="#">Dark</a>
+  <li [ngClass]="{active: chosenList === 'Dark'}">
+    <a (click)="onClick('Dark')"  style="cursor: pointer">Dark</a>
   </li>
   <!-- <li class="nav-item">
     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
   </li> -->
 </ul>
+<app-list [characters]="getCharacters()" (sideAssignedEvent) = "onSideAssigned($event)" ></app-list>
+</div>
