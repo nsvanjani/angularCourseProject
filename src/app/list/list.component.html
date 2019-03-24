@@ -2,7 +2,11 @@
 
   <app-item
   *ngFor="let char of characters"
+  [character] = "char">
+  </app-item>
+  <!-- before adding service <app-item
+  *ngFor="let char of characters"
   [character] = "char"
   (sideAssignedeventEmitter) = "onSideAssigned($event)">
-  </app-item>
+  </app-item> -->
 </div>

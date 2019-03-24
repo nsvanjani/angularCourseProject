@@ -9,13 +9,13 @@ export class ListComponent implements OnInit {
 
   @Input()
   characters;
-  @Output()
-  sideAssignedEvent = new EventEmitter<{nams: string , side: string}>();
+  // @Output()
+  //before adding service sideAssignedEvent = new EventEmitter<{nams: string , side: string}>();
   constructor() { }
 
   ngOnInit() {
   }
-  onSideAssigned(charInfo){
-    this.sideAssignedEvent.emit(charInfo);
-  }
+  // before adding service onSideAssigned(charInfo){
+  //   this.sideAssignedEvent.emit(charInfo);
+  // }
 }
