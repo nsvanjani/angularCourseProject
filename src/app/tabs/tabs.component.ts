@@ -13,20 +13,23 @@ export class TabsComponent implements OnInit {
   //   {name: 'Darth wader', side: 'Light' },
   //   {name: 'Gablu', side: 'Dark' },
   // ];
-  characters = [] ;
-  chosenList = 'all';
-  starWarsService:  StarWarsService;
 
-  constructor(starWarsService:  StarWarsService) {
-    this.starWarsService = starWarsService;
-  }
+  //removed for routing  characters = [] ;
+  // chosenList = 'all';
+  // starWarsService:  StarWarsService;
+
+  // before routing  constructor(starWarsService:  StarWarsService) {
+  //   this.starWarsService = starWarsService;
+  // }
+  constructor(){}
 
   ngOnInit() {
   }
-  getCharacters(){
-    this.characters = this.starWarsService.getCharacters(this.chosenList);
-    return this.characters;
-  }
+  // removed for routing getCharacters(){
+  //   this.characters = this.starWarsService.getCharacters(this.chosenList);
+  //   return this.characters;
+  // }
+
   // code moved to service
   // getCharacters(){
   //   if(this.chosenList === 'all'){
@@ -36,9 +39,10 @@ export class TabsComponent implements OnInit {
   //   }
   // }
 
-  onClick(option){
-    this.chosenList = option;
-  }
+  // removed for routing onClick(option){
+  //   this.chosenList = option;
+  // }
+
   // moved to service
   // onSideAssigned(charInfo){
   //   this.characters.filter(character => character.name === charInfo.name).map(char => char.side = charInfo.side);
