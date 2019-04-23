@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StarWarsService } from 'app/star-wars.service';
+
 
 @Component({
   selector: 'app-create-character',
@@ -6,18 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-character.component.css']
 })
 export class CreateCharacterComponent implements OnInit {
-  availableSides : [{display: 'Node' , vlaue: 'None'},
-                    {display: 'Light' , vlaue: 'Light'},
-                    {display: 'Dark' , vlaue: 'Dark'}
-];
 
-side;
-name;
-  constructor() { }
+  starWarService:  StarWarsService;
+  availableSides = [{display: 'None' , value: 'None'},
+                    {display: 'Light' , value: 'Light'},
+                    {display: 'Dark' , value: 'Dark'}];
+  constructor(starWarService : StarWarsService) {
+    this.starWarService = starWarService;
+   }
 
   ngOnInit() {
   }
-  onSubmit(){
-    console.log('submit called');
+
+  onSubmit(submittedForm){
+    if(submittedForm.invalid){
+      console.log('invalid form')
+      return;
+    }
+    this.starWarService.onAcharacterAdd(submittedForm.value.name , submittedForm.value.side);
+    console.log(submittedForm.value);
   }
 }

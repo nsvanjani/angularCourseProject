@@ -13,6 +13,17 @@ export class StarWarsService{
     }
   }
   onSideAssigned(charInfo){
-    this.characters.filter(character => character.name === charInfo.name).map(char => char.side = charInfo.side);
+    this.characters.filter(character => character.name === charInfo.name).
+    map(char => char.side = charInfo.side);
+  }
+
+  onAcharacterAdd(name, side){
+    if(this.characters.filter(character => character.name === name)){
+      console.log('already present');
+      return;
+    }else{
+      const starChar = {name: name ,  side: side};
+      this.characters.push(starChar);
+    }
   }
 }
